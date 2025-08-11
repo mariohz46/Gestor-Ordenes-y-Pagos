@@ -5,7 +5,9 @@ function MainPage(props) {
     const navigate = useNavigate(); // Initialize useNavigate hook
 
     const handleLogout = () => {
+        localStorage.removeItem('token');
         navigate('/login');
+        
     };
 
     return (

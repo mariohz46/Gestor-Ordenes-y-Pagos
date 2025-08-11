@@ -6,11 +6,11 @@ const controller = {}
 const secret_key="clave";
 
 controller.login = async (req,res) =>{
-    const { nombre, contraseña } = req.body;
+    const { nombre, contraseña} = req.body;
     try {
         const usuario= await usuarios.findOne({where:{nombre}});
         if(nombre ==""){
-            return res.status(401).json({mensaje:"inserte un usuario"});
+            return res.status(401).json({mensaje:"Ingrese un usuario por favor"});
         }
         
         if(contraseña ==""){
@@ -33,6 +33,7 @@ controller.login = async (req,res) =>{
         );
 
         return res.json({
+            success:true,
             mensaje: "Login exitoso",
             token,
             usuario: {
@@ -40,6 +41,7 @@ controller.login = async (req,res) =>{
                 nombre: usuario.nombre
             }
         });
+        console.log("este es el token de la sesion",token);
     } catch (error) {
         return res.status(500).json({ mensaje: "Error en el servidor", error: error.message });
     }

@@ -40,7 +40,23 @@ form{
     background-color: #3B6790;
 }
 
-
+.alert {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+.alert-warning {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+.alert-danger {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+}
+input.error {
+  border-color: #dc3545 !important;
+  background-color: #f8d7da80;
+}
 
 @media only screen and(max-width:600px){
     form{
